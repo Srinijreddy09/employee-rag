@@ -251,7 +251,7 @@ Before testing the application, you need to insert employee data.
 
 ---
 
-# Method 1: Using Django Admin (Recommended)
+#  Using Django Admin 
 
 1. Start the server:
 
@@ -280,9 +280,9 @@ Example:
 
 ```
 Employee ID: EMP101
-Employee First Name: John
-Employee Last Name: Doe
-Email: john@example.com
+Employee First Name: Srinij
+Employee Last Name: Reddy
+Email: srinij@example.com
 Phone: 9876543210
 ```
 
@@ -296,59 +296,21 @@ Example:
 
 ```
 Work ID: W101
-Employee: John Doe
+Employee: srinij
 Role: Software Engineer
 Department: Engineering
 Office Location: Hyderabad
 Projects: ["AI Tool", "Dashboard"]
 Number of Projects Completed: 5
 Rating: 4.5
-Performance Summary: John consistently delivers high quality work and contributes positively to the team.
+Performance Summary: srinij consistently delivers high quality work and contributes positively to the team.
 ```
 
 Click **Save**.
 
 ---
 
-# Method 2: Insert Data Using Django Shell
 
-Open Django shell:
-
-```
-python manage.py shell
-```
-
-Run the following code:
-
-```
-from employees.models import EmployeeDetails, EmployeeWork
-
-emp = EmployeeDetails.objects.create(
-    employee_id="EMP102",
-    employee_first_name="Alice",
-    employee_last_name="Smith",
-    email="alice@example.com",
-    phone="9876543211"
-)
-
-EmployeeWork.objects.create(
-    work_id="W102",
-    employee=emp,
-    role="Data Analyst",
-    department="Analytics",
-    office_location="Bangalore",
-    projects=["Sales Dashboard", "Data Pipeline"],
-    no_of_projects_completed=3,
-    rating=4.2,
-    performance_summary="Alice consistently delivers insightful data analysis and supports business decisions."
-)
-```
-
-Exit shell:
-
-```
-exit()
-```
 
 Now you can search:
 
@@ -384,13 +346,13 @@ http://127.0.0.1:8000/employees/employee_query/?query=EMP101
 
 ```
 {
-  "summary": "John Doe works as a Software Engineer in the Engineering department located in Hyderabad. The employee has successfully completed 5 projects including AI Tool and Dashboard. Their performance rating is 4.5/5.",
+  "summary": "srinij works as a Software Engineer in the Engineering department located in Hyderabad. The employee has successfully completed 5 projects including AI Tool and Dashboard. Their performance rating is 4.5/5.",
 
   "employee": {
     "employee_id": "EMP101",
-    "employee_first_name": "John",
-    "employee_last_name": "Doe",
-    "email": "john@example.com",
+    "employee_first_name": "sriij",
+    "employee_last_name": "reddy",
+    "email": "srinij@example.com",
     "phone": "9876543210",
     "work": [
       {
@@ -419,15 +381,8 @@ http://127.0.0.1:8000/employees/employee_query/?query=EMP101
 
 ---
 
-# Future Improvements
+<img width="1733" height="874" alt="image" src="https://github.com/user-attachments/assets/71a96a00-bffe-43f6-a5c7-771af9f05d34" />
 
-Possible enhancements:
-
-* Integrate OpenAI or another LLM API
-* Improve UI styling
-* Add authentication and role-based access
-* Add advanced search filters
-* Add pagination for large datasets
 
 ---
 
