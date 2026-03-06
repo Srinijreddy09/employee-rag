@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Employee Search</title>
+
+
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Employee Search</h2>
+
+<input id="query" placeholder="Enter name or employee ID">
+<button onclick="searchEmployee()">Search</button>
+
+
+<div class="section">
+<h3> Summary</h3>
+<p id="summary"></p>
+</div>
+
+
+<div class="section">
+<h3>Employee Data</h3>
+<pre id="result"></pre>
+</div>
+
+</div>
+
+<script>
+
+async function searchEmployee(){
+
+let query = document.getElementById("query").value
+
+let response = await fetch(`/employees/employee_query/?query=${query}`)
+
+let data = await response.json()
+
+if(data.error){
+
+document.getElementById("summary").innerText = data.error
+document.getElementById("result").innerText = ""
+
+}
+
+else{
+
+document.getElementById("summary").innerText = data.summary
+
+let emp = data.employee
+
+let work = emp.work[0]
+
+document.getElementById("result").innerText =
+
+`Name: ${emp.employee_first_name} ${emp.employee_last_name}
+
+Email: ${emp.email}
+
+Phone: ${emp.phone}
+
+Role: ${work.role}
+
+Department: ${work.department}
+
+Office Location: ${work.office_location}
+
+Projects: ${work.projects.join(", ")}
+
+Projects Completed: ${work.no_of_projects_completed}
+
+Rating: ${work.rating}/5
+`
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
