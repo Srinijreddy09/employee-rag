@@ -279,7 +279,7 @@ You will see two models:
 Example:
 
 ```
-Employee ID: EMP101
+Employee ID: 101
 Employee First Name: Srinij
 Employee Last Name: Reddy
 Email: srinij@example.com
@@ -295,7 +295,7 @@ Click **Save**.
 Example:
 
 ```
-Work ID: W101
+Work ID: 56
 Employee: srinij
 Role: Software Engineer
 Department: Engineering
@@ -331,7 +331,7 @@ GET /employees/employee_query/?query=<value>
 Example:
 
 ```
-http://127.0.0.1:8000/employees/employee_query/?query=John
+http://127.0.0.1:8000/employees/employee_query/?query=srinij
 ```
 
 or
